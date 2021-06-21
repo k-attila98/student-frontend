@@ -1,0 +1,32 @@
+<div class="container">
+    <h3 class="my-3">Add grade for a student</h3>
+
+    <div *ngIf=addedGrade class="alert alert-primary">
+        Added grade!
+    </div>
+
+    <form  class="needs-validation" [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="row">
+            <div class="form-group col col-md-4">
+                <label for="studentId">Student to add grade to</label>
+                <select class="form-control" id="studentId" name="studentId" formControlName="studentId">
+                    <option *ngFor="let student of students" value="{{student.id}}" selected>{{student.name}}</option>
+                </select>
+            </div>
+
+            <div class="form-group col col-md-4">
+                <label for="grade">Grade to add</label>
+                <select class="form-control" id="grade" name="grade" formControlName="grade">
+                    <option selected>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+            </div>
+        </div>
+
+        <hr class="mb-4">
+        <input type="submit" class="btn btn-primary" value="Add new grade" />
+    </form>
+</div>

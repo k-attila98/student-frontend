@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <h3 class="mb-3 my-3">Add new student</h3>
+
+            <div *ngIf=addedStudent class="alert alert-primary">
+                Added student!
+            </div>
+
+            <form class="needs-validation" [formGroup]="form" (ngSubmit)="submitForm()">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="name">Full name</label>
+                        <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="" value="pl.: Kiss János">
+                        <div class="alert alert-danger" *ngIf="name.invalid && name.touched">
+                            Needs valid name!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="phoneNumber">Phone number</label>
+                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" formControlName="phoneNumber" placeholder="pl.: 123-4567" >
+                    <div class="alert alert-danger m-0" *ngIf="phoneNumber.invalid && phoneNumber.touched">
+                        Needs valid phone number!
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="dob">Date of birth</label> 
+                    <input type="datetime-local" class="form-control" id="born" name="born" formControlName="born" placeholder="pl.: 2000-01-01">
+                    <div class="alert alert-danger m-0" *ngIf="born.invalid && born.touched">
+                        Needs valid date of birth!
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="year">Year</label>
+                    <input type="number" class="form-control" id="year" name="year" formControlName="year" placeholder="pl.: 3" required>
+                    <div class="alert alert-danger m-0" *ngIf="year.invalid && year.touched">
+                        Needs valid year!
+                    </div>
+                </div>
+
+                <hr class="mb-4">
+
+                <input type="submit" [disabled]="form.invalid" class="btn btn-primary" value="Add new student" />
+            </form>
+        </div>
+    </div>
+
+</div>

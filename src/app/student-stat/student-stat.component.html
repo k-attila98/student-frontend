@@ -1,0 +1,24 @@
+<div class="container">
+    <h3 class="my-3">List of students ordered by average</h3>
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">No. of fails</th>
+            <th scope="col">Grade average</th>
+            <th scope="col">Best grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of studentsWithStats">
+            <th *ngIf="student.gradeCount > 0" scope="row">{{ student.id }}</th>
+            <td *ngIf="student.gradeCount > 0">{{ student.name }}</td>
+            <td *ngIf="student.gradeCount > 0">{{ student.failCount }}</td>
+            <td *ngIf="student.gradeCount > 0">{{ student.gradeAverage }}</td>
+            <td *ngIf="student.gradeCount > 0">{{ student.bestGrade }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

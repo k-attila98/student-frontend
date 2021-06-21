@@ -1,0 +1,24 @@
+<div class="container">
+    <h3 class="my-3">List of students ordered by name</h3>
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Year</th>
+            <th scope="col">Phone number</th>
+            <th scope="col">Born</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students">
+            <th scope="row">{{ student.id }}</th>
+            <td>{{ student.name }}</td>
+            <td>{{ student.year }}</td>
+            <td>{{ student.phoneNumber }}</td>
+            <td>{{ student.born | date:'yyyy. MM. dd.' }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
